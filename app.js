@@ -1,6 +1,7 @@
 const slides = document.getElementsByClassName('carousel-item');
 const prevButton = document.getElementById('carousel-button-prev');
 const nextButton = document.getElementById('carousel-button-next');
+const slideNumber = document.querySelector('.slide-number');
 
 let slidePosition = 0;
 const totalSlides = slides.length;
@@ -26,7 +27,7 @@ function moveToNextSlide() {
     } else {
         slidePosition++;
     }
-
+    slideNumber.textContent = slidePosition + 1;
     slides[slidePosition].classList.add("carousel-item-visible");
 }
 
@@ -37,12 +38,11 @@ function moveToPrevSlide() {
     } else {
         slidePosition --;
     }
-
+    slideNumber.textContent = slidePosition + 1;
     slides[slidePosition].classList.add('carousel-item-visible');
 }
 
 // Let the slide moving automatically
 setInterval(function() {
-    moveToPrevSlide();
-
-}, 2000)
+    moveToNextSlide()
+}, 2000);
