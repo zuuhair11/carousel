@@ -40,3 +40,9 @@ function moveToPrevSlide() {
 
     slides[slidePosition].classList.add('carousel-item-visible');
 }
+
+// Let the slide moving automatically
+setInterval(function() {
+    moveToPrevSlide();
+
+}, 2000)
